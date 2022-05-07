@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4488238992268398851}
   - component: {fileID: 4488238992268398850}
   - component: {fileID: 4488238992268398852}
+  - component: {fileID: 6450324036872483054}
   m_Layer: 0
   m_Name: Nails
   m_TagString: Nails
@@ -111,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.94, y: 0.30910653}
   m_EdgeRadius: 0
+--- !u!114 &6450324036872483054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4488238992268398849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37b7a15ec70ce048a2660ca29864a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
