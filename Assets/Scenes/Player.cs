@@ -13,12 +13,17 @@ public class Player : MonoBehaviour
     GameObject currentFloor;
     [SerializeField] int Hp;
     [SerializeField] GameObject HpBar;
-    [SerializeField] Text scoreText;
+    [SerializeField] Text ScoreTextMeshPro;
+
+    int score;
+    float scoreTime;
 
     // Start is called before the first frame update
     void Start()
     {
        Hp = 10;
+       score = 0;
+       scoreTime = 0f;
     }
 
     // Update is called once per frame
@@ -35,6 +40,8 @@ public class Player : MonoBehaviour
         {
             transform.Translate(-moveSpeed*Time.deltaTime, 0, 0);
         }
+
+        updateScore();
 
     }
 
@@ -113,5 +120,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    void updateScore()
+    {
+        scoreTime += Time.deltaTime;
+        if(scoreTime>2f)
+        {
+            score++;
+            scoreTime = 0f;
+            ScoreTextMeshPro.text ="地下" + score.ToString() + "層";
+        }
+    }
 
 }
