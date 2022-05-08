@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     Animator anim;
     SpriteRenderer render;
 
+    AudioSource deathSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
        scoreTime = 0f;
        anim = GetComponent<Animator>();
        render = GetComponent<SpriteRenderer>();
+       deathSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -106,6 +109,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.tag == "DeathLine")
         {
             Debug.Log("你輸了");
+            deathSound.Play();
         }
 
     }
@@ -121,6 +125,7 @@ public class Player : MonoBehaviour
         else if(Hp<0)
         {
             Hp = 0;
+            deathSound.Play();
         }
 
         UpdateHpBar();
