@@ -15,10 +15,10 @@ public class Floor : MonoBehaviour
     void Update()
     {
         transform.Translate(0, moveSpeed*Time.deltaTime, 0);
-        // if(transform.position.y > 6f)
-        // {
-        //     Destory(gameObject);
-        //     transform.parent.GetComponent<FloorManager>().SpawnFloor();
-        // }
+        if(transform.position.y > 6f)
+        {
+            UnityEngine.Object.Destroy(gameObject);
+            transform.parent.GetComponent<FloorManager>().SpawnFloor();
+        }
     }
 }
