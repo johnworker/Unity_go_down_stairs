@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = -5f;
     GameObject currentFloor;
     [SerializeField] int Hp;
+    [SerializeField] GameObject HpBar;
 
     // Start is called before the first frame update
     void Start()
