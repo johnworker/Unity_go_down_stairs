@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 570873175}
   m_Layer: 0
   m_Name: DeathLine
-  m_TagString: Untagged
+  m_TagString: DeathLine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -644,9 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e91231f8a4c6e74a86fea3e92699bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorPrefabs:
-  - {fileID: 33462234606820299, guid: 7ed54c5652356334093e2ec3f92f3bfb, type: 3}
-  - {fileID: 4488238992268398849, guid: d46c31a3a3621534db9805a6b038c0dd, type: 3}
+  floorPrefabs: []
 --- !u!4 &1139583158
 Transform:
   m_ObjectHideFlags: 0

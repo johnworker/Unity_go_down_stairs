@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Normal
   - Nails
+  - DeathLine
   layers:
   - Default
   - TransparentFX
