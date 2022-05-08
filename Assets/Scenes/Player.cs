@@ -91,6 +91,25 @@ public class Player : MonoBehaviour
         {
             Hp = 0;
         }
+
+        UpdateHpBar();
     }
+
+    void UpdateHpBar()
+    {
+        for(int i=0; i<HpBar.transform.childCount; i++)
+        {
+            if(Hp>i)
+            {
+                HpBar.transform.GetChild(i).gameObject.SetActive(true);
+            }
+
+            else
+            {
+                HpBar.transform.GetChild(i).gameObject.SetActive(false);
+            }
+        }
+    }
+
 
 }
