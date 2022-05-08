@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
     public void Replay()
     {
         Time.timeScale = 1f;
-        SceneManagement.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene");
     }
 
 }
