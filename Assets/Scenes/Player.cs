@@ -10,11 +10,12 @@ public class Player : MonoBehaviour
     // 保持隱私在unity調整參數的C#寫法
     [SerializeField] float moveSpeed = -5f;
     GameObject currentFloor;
+    [SerializeField] int Hp;
 
     // Start is called before the first frame update
     void Start()
     {
-        // transform.Translate(-10,0,0);
+       Hp = 10;
     }
 
     // Update is called once per frame
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("撞到了第一種階梯");
                 currentFloor = other.gameObject;
+                ModifyHp(1);
             }
             
         }
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("撞到了第二種階梯");
                 currentFloor = other.gameObject;
+                ModifyHp(-3);
             }
         }
 
@@ -62,6 +65,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("撞到天花板");
             currentFloor.GetComponent<BoxCollider2D>().enabled = false;
+            ModifyHp(-3);
         }
     }
 
@@ -72,6 +76,20 @@ public class Player : MonoBehaviour
             Debug.Log("你輸了");
         }
 
+    }
+
+    void ModifyHp(int num)
+    {
+        Hp += num;
+        if(Hp>10)
+        {
+            Hp = 10;
+        }
+
+        else if(Hp<0)
+        {
+            Hp = 0;
+        }
     }
 
 }
