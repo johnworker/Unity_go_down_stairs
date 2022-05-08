@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
 
     AudioSource deathSound;
 
+    [SerializeField] GameObject replayButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,7 +111,7 @@ public class Player : MonoBehaviour
         if(other.gameObject.tag == "DeathLine")
         {
             Debug.Log("你輸了");
-            deathSound.Play();
+            Die();
         }
 
     }
@@ -122,10 +124,13 @@ public class Player : MonoBehaviour
             Hp = 10;
         }
 
-        else if(Hp<0)
+        else if(Hp<=0)
         {
             Hp = 0;
             deathSound.Play();
+            // 遊戲時間縮放比例
+            Time.timeScale = 0f;
+            Die();
         }
 
         UpdateHpBar();
@@ -156,6 +161,13 @@ public class Player : MonoBehaviour
             scoreTime = 0f;
             ScoreTextMeshPro.text ="地下" + score.ToString() + "層";
         }
+    }
+
+    void Die()
+    {
+        deathSound.Play();
+        Time.timeScale = 0f;
+        replayButton.SetActive(true);
     }
 
 }
