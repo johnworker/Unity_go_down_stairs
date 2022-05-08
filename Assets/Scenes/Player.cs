@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     // 保持隱私在unity調整參數的C#寫法
     [SerializeField] float moveSpeed = -5f;
+    GameObject currentFloor;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +41,27 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.tag == "Normal")
         {
-            Debug.Log("撞到了第一種階梯");
+            if(other.contacts[0].normal == new Vector2(0f,1f))
+            {
+                Debug.Log("撞到了第一種階梯");
+                currentFloor = other.gameObject;
+            }
+            
         }
 
         else if(other.gameObject.tag == "Nails")
         {
-            Debug.Log("撞到了第二種階梯");
+            if(other.contacts[0].normal == new Vector2(0f,1f))
+            {
+                Debug.Log("撞到了第二種階梯");
+                currentFloor = other.gameObject;
+            }
+        }
+
+        else if(other.gameObject.tag == "Ceiling")
+        {
+            Debug.Log("撞到天花板");
+            currentFloor.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
