@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -73,7 +74,6 @@ public class Player : MonoBehaviour
         {
             if(other.contacts[0].normal == new Vector2(0f,1f))
             {
-                Debug.Log("撞到了第一種階梯");
                 currentFloor = other.gameObject;
                 ModifyHp(1);
                 
@@ -86,7 +86,6 @@ public class Player : MonoBehaviour
         {
             if(other.contacts[0].normal == new Vector2(0f,1f))
             {
-                Debug.Log("撞到了第二種階梯");
                 currentFloor = other.gameObject;
                 ModifyHp(-3);
                 anim.SetTrigger("hurt");
@@ -97,7 +96,6 @@ public class Player : MonoBehaviour
 
         else if(other.gameObject.tag == "Ceiling")
         {
-            Debug.Log("撞到天花板");
             currentFloor.GetComponent<BoxCollider2D>().enabled = false;
             ModifyHp(-3);
             anim.SetTrigger("hurt");
@@ -110,7 +108,6 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.tag == "DeathLine")
         {
-            Debug.Log("你輸了");
             Die();
         }
 
@@ -168,6 +165,12 @@ public class Player : MonoBehaviour
         deathSound.Play();
         Time.timeScale = 0f;
         replayButton.SetActive(true);
+    }
+
+    public void Replay()
+    {
+        Time.timeScale = 1f;
+        SceneManagement.LoadScene("SampleScene");
     }
 
 }
