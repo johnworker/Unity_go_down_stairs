@@ -18,12 +18,17 @@ public class Player : MonoBehaviour
     int score;
     float scoreTime;
 
+    Animator anim;
+    SpriteRenderer render;
+
     // Start is called before the first frame update
     void Start()
     {
        Hp = 10;
        score = 0;
        scoreTime = 0f;
+       anim = GetComponent<Animator>();
+       render = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -34,11 +39,20 @@ public class Player : MonoBehaviour
         {
         // Time.deltaTime 每秒的間隔時間(為了在每個不同的遊戲上有相同遊戲體驗而做)
             transform.Translate(moveSpeed*Time.deltaTime, 0, 0);
+            render.flipX = false;
+            anim.SetBool("run", true);
         }
 
         else if(Input.GetKey(KeyCode.A))
         {
             transform.Translate(-moveSpeed*Time.deltaTime, 0, 0);
+            render.flipX = true;
+            anim.SetBool("run", true);
+        }
+
+        else
+        {
+            anim.SetBool("run", false);
         }
 
         updateScore();
@@ -57,6 +71,8 @@ public class Player : MonoBehaviour
                 Debug.Log("撞到了第一種階梯");
                 currentFloor = other.gameObject;
                 ModifyHp(1);
+                
+                other.gameObject.GetComponent<AudioSource>().Play();
             }
             
         }
@@ -68,6 +84,9 @@ public class Player : MonoBehaviour
                 Debug.Log("撞到了第二種階梯");
                 currentFloor = other.gameObject;
                 ModifyHp(-3);
+                anim.SetTrigger("hurt");
+
+                other.gameObject.GetComponent<AudioSource>().Play();
             }
         }
 
@@ -76,6 +95,9 @@ public class Player : MonoBehaviour
             Debug.Log("撞到天花板");
             currentFloor.GetComponent<BoxCollider2D>().enabled = false;
             ModifyHp(-3);
+            anim.SetTrigger("hurt");
+
+            other.gameObject.GetComponent<AudioSource>().Play();
         }
     }
 
