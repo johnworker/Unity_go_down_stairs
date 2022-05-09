@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] int Hp;
     [SerializeField] GameObject HpBar;
     [SerializeField] Text ScoreTextMeshPro;
+    [SerializeField] private TextMeshProUGUI ScoreTextElement;
 
     int score;
     float scoreTime;
@@ -149,14 +151,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    void updateScore()
+    public void updateScore()
     {
         scoreTime += Time.deltaTime;
         if(scoreTime>2f)
         {
             score++;
             scoreTime = 0f;
-            ScoreTextMeshPro.text ="地下" + score.ToString() + "層";
+            ScoreTextElement.text = "地下" + score.ToString() + "層";
         }
     }
 
