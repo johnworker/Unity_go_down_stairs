@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] GameObject replayButton;
 
+
     // Start is called before the first frame update
     void Start()
     {
