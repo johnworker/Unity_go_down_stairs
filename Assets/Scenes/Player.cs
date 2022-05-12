@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
             {
                 currentFloor = other.gameObject;
                 ModifyHp(-3);
-                anim.SetTrigger("hurt");
+                anim.SetTrigger("justin_injured");
 
                 other.gameObject.GetComponent<AudioSource>().Play();
             }
@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
         {
             currentFloor.GetComponent<BoxCollider2D>().enabled = false;
             ModifyHp(-3);
-            anim.SetTrigger("hurt");
+            anim.SetTrigger("justin_injured");
 
             other.gameObject.GetComponent<AudioSource>().Play();
         }

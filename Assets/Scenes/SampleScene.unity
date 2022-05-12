@@ -206,6 +206,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1139583158}
     m_Modifications:
+    - target: {fileID: 2971517296668118853, guid: d46c31a3a3621534db9805a6b038c0dd, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: abccc5e2184a7e7499041d7503774a73, type: 3}
     - target: {fileID: 4488238992268398849, guid: d46c31a3a3621534db9805a6b038c0dd, type: 3}
       propertyPath: m_Name
       value: Nails (2)
@@ -339,6 +343,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1139583158}
     m_Modifications:
+    - target: {fileID: 2971517296668118853, guid: d46c31a3a3621534db9805a6b038c0dd, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: abccc5e2184a7e7499041d7503774a73, type: 3}
     - target: {fileID: 4488238992268398849, guid: d46c31a3a3621534db9805a6b038c0dd, type: 3}
       propertyPath: m_Name
       value: Nails (1)
@@ -2786,7 +2794,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 03c12feda5f26a24eabd56820eb61184, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b6c7a2d80e43a44db3f67fa82678753, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2829,7 +2837,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.41, y: 1.29}
+    oldSize: {x: 1.5, y: 1.3}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2889,8 +2897,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ab7b0639c6cb1da45a69c6c3116575ea, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 8d9e686f3c3e93048844e81b7a563b2e, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
